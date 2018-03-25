@@ -1,5 +1,5 @@
 // UrlRewriter - A .NET URL Rewriter module
-// Version 2.0
+// 
 //
 // Copyright 2011 Intelligencia
 // Copyright 2011 Seth Yates
@@ -42,7 +42,7 @@ namespace Intelligencia.UrlRewriter.Conditions
                 throw new ArgumentNullException("context");
             }
 
-            string ipAddress = context.Properties[Constants.RemoteAddressHeader];
+            var ipAddress = context.Properties[Constants.RemoteAddressHeader];
 
             return (ipAddress != null && _range.InRange(IPAddress.Parse(ipAddress)));
         }

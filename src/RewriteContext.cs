@@ -1,5 +1,5 @@
 // UrlRewriter - A .NET URL Rewriter module
-// Version 2.0
+// 
 //
 // Copyright 2011 Intelligencia
 // Copyright 2011 Seth Yates
@@ -57,15 +57,15 @@ namespace Intelligencia.UrlRewriter
             _location = rawUrl;
 
             // Initialise the Properties collection from all the server variables, headers and cookies.
-            foreach (string key in httpContext.ServerVariables.AllKeys)
+            foreach (var key in httpContext.ServerVariables.AllKeys)
             {
                 _properties.Add(key, httpContext.ServerVariables[key]);
             }
-            foreach (string key in httpContext.RequestHeaders.AllKeys)
+            foreach (var key in httpContext.RequestHeaders.AllKeys)
             {
                 _properties.Add(key, httpContext.RequestHeaders[key]);
             }
-            foreach (string key in httpContext.RequestCookies.AllKeys)
+            foreach (var key in httpContext.RequestCookies.AllKeys)
             {
                 _properties.Add(key, httpContext.RequestCookies[key].Value);
             }

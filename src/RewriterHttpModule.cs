@@ -1,17 +1,18 @@
 // UrlRewriter - A .NET URL Rewriter module
-// Version 2.0
+// 
 //
 // Copyright 2011 Intelligencia
 // Copyright 2011 Seth Yates
 // 
 
-using System;
-using System.Web;
-using Intelligencia.UrlRewriter.Configuration;
-using Intelligencia.UrlRewriter.Utilities;
-
 namespace Intelligencia.UrlRewriter
 {
+    using System;
+    using System.Web;
+
+    using Intelligencia.UrlRewriter.Configuration;
+    using Intelligencia.UrlRewriter.Utilities;
+
     /// <summary>
     /// Main HTTP Module for the URL Rewriter.
     /// Rewrites URL's based on patterns and conditions specified in the configuration file.
@@ -25,7 +26,12 @@ namespace Intelligencia.UrlRewriter
         /// <param name="context">The application context.</param>
         void IHttpModule.Init(HttpApplication context)
         {
-            context.BeginRequest += BeginRequest;
+            /*if (!Config.EnableURLRewriting)
+            {
+                return;
+            }*/
+
+            context.BeginRequest += this.BeginRequest;
         }
 
         /// <summary>
@@ -54,7 +60,7 @@ namespace Intelligencia.UrlRewriter
             // HttpContext.Current.Response.AddHeader(Constants.HeaderXPoweredBy, Configuration.XPoweredBy);
             
             // Allow a bypass to be set up by the using application
-            HttpContext context = HttpContext.Current;
+            var context = HttpContext.Current;
             if (context.Items.Contains(@"Intelligencia.UrlRewriter.Bypass") && 
                 context.Items[@"Intelligencia.UrlRewriter.Bypass"] is bool && 
                 ((bool)context.Items[@"Intelligencia.UrlRewriter.Bypass"]))
@@ -62,6 +68,7 @@ namespace Intelligencia.UrlRewriter
                 // A bypass is set!
                 return;
             }
+
             _rewriter.Rewrite();
         }
 

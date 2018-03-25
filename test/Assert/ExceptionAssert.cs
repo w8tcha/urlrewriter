@@ -1,8 +1,9 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace Intelligencia.UrlRewriter
+﻿namespace Intelligencia.UrlRewriter
 {
+    using System;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     /// <summary>
     /// Useful assertions for actions that are expected to throw an exception.
     /// </summary>

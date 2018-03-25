@@ -1,12 +1,11 @@
 // UrlRewriter - A .NET URL Rewriter module
-// Version 2.0
+// 
 //
 // Copyright 2011 Intelligencia
 // Copyright 2011 Seth Yates
 // 
 
 using System;
-using System.Text.RegularExpressions;
 
 namespace Intelligencia.UrlRewriter.Conditions
 {
@@ -55,10 +54,10 @@ namespace Intelligencia.UrlRewriter.Conditions
                 throw new ArgumentNullException("context");
             }
 
-            string property = context.Properties[PropertyName];
+            var property = context.Properties[PropertyName];
             if (property != null)
             {
-                Match match = Pattern.Match(property);
+                var match = Pattern.Match(property);
                 if (match.Success)
                 {
                     context.LastMatch = match;

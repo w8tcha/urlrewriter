@@ -1,14 +1,16 @@
-﻿using System;
-using System.Net;
-using System.Web;
-using System.Xml;
-using Intelligencia.UrlRewriter.Configuration;
-using Intelligencia.UrlRewriter.Mocks;
-using Intelligencia.UrlRewriter.Utilities;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace Intelligencia.UrlRewriter.Tests
+﻿namespace Intelligencia.UrlRewriter.Tests
 {
+    using System;
+    using System.Net;
+    using System.Web;
+    using System.Xml;
+
+    using Intelligencia.UrlRewriter.Configuration;
+    using Intelligencia.UrlRewriter.Mocks;
+    using Intelligencia.UrlRewriter.Utilities;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     [DeploymentItem("README.txt")]
     public class RewriterEngineTest

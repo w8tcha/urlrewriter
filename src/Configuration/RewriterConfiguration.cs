@@ -1,5 +1,5 @@
 // UrlRewriter - A .NET URL Rewriter module
-// Version 2.0
+// 
 //
 // Copyright 2011 Intelligencia
 // Copyright 2011 Seth Yates
@@ -168,7 +168,7 @@ namespace Intelligencia.UrlRewriter.Configuration
         /// </summary>
         private void LoadFromConfig()
         {
-            XmlNode section = _configurationManager.GetSection(Constants.RewriterNode) as XmlNode;
+            var section = _configurationManager.GetSection(Constants.RewriterNode) as XmlNode;
             if (section == null)
             {
                 throw new ConfigurationErrorsException(MessageProvider.FormatString(Message.MissingConfigFileSection, Constants.RewriterNode), section);

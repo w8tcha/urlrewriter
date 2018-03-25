@@ -1,5 +1,5 @@
 // UrlRewriter - A .NET URL Rewriter module
-// Version 2.0
+// 
 //
 // Copyright 2011 Intelligencia
 // Copyright 2011 Seth Yates
@@ -7,7 +7,7 @@
 
 using System;
 using System.Xml;
-using System.Configuration;
+
 using Intelligencia.UrlRewriter.Configuration;
 using Intelligencia.UrlRewriter.Utilities;
 using Intelligencia.UrlRewriter.Actions;
@@ -60,13 +60,13 @@ namespace Intelligencia.UrlRewriter.Parsers
                 throw new ArgumentNullException("config");
             }
 
-            string cookieName = node.GetOptionalAttribute(Constants.AttrCookie);
+            var cookieName = node.GetOptionalAttribute(Constants.AttrCookie);
             if (String.IsNullOrEmpty(cookieName))
             {
                 return null;
             }
 
-            string cookieValue = node.GetRequiredAttribute(Constants.AttrValue, true);
+            var cookieValue = node.GetRequiredAttribute(Constants.AttrValue, true);
 
             return new SetCookieAction(cookieName, cookieValue);
         }

@@ -1,5 +1,5 @@
 // UrlRewriter - A .NET URL Rewriter module
-// Version 2.0
+// 
 //
 // Copyright 2011 Intelligencia
 // Copyright 2011 Seth Yates
@@ -61,10 +61,10 @@ namespace Intelligencia.UrlRewriter.Parsers
                 throw new ArgumentNullException("config");
             }
 
-            ConditionalAction rule = new ConditionalAction();
+            var rule = new ConditionalAction();
 
             // Process the conditions on the element.
-            bool negative = (node.LocalName == Constants.ElementUnless);
+            var negative = (node.LocalName == Constants.ElementUnless);
             ParseConditions(node, rule.Conditions, negative, config);
 
             // Next, process the actions on the element.
@@ -75,18 +75,18 @@ namespace Intelligencia.UrlRewriter.Parsers
 
         private static void ReadActions(XmlNode node, IList<IRewriteAction> actions, IRewriterConfiguration config)
         {
-            XmlNode childNode = node.FirstChild;
+            var childNode = node.FirstChild;
             while (childNode != null)
             {
                 if (childNode.NodeType == XmlNodeType.Element)
                 {
-                    IList<IRewriteActionParser> parsers = config.ActionParserFactory.GetParsers(childNode.LocalName);
+                    var parsers = config.ActionParserFactory.GetParsers(childNode.LocalName);
                     if (parsers != null)
                     {
-                        bool parsed = false;
-                        foreach (IRewriteActionParser parser in parsers)
+                        var parsed = false;
+                        foreach (var parser in parsers)
                         {
-                            IRewriteAction action = parser.Parse(childNode, config);
+                            var action = parser.Parse(childNode, config);
                             if (action != null)
                             {
                                 parsed = true;

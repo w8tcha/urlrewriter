@@ -1,5 +1,5 @@
 // UrlRewriter - A .NET URL Rewriter module
-// Version 2.0
+// 
 //
 // Copyright 2011 Intelligencia
 // Copyright 2011 Seth Yates
@@ -63,7 +63,7 @@ namespace Intelligencia.UrlRewriter.Utilities
             pattern = Regex.Replace(pattern, @"([0-9]{1,3}\.[0-9]{1,3})\.\*", @"$1.0.0-$1.255.255");
             pattern = Regex.Replace(pattern, @"([0-9]{1,3})\.\*", @"$1.0.0.0-$1.255.255.255");
 
-            string[] parts = pattern.Split('-');
+            var parts = pattern.Split('-');
             return (parts.Length > 1)
                     ? new IPRange(IPAddress.Parse(parts[0].Trim()), IPAddress.Parse(parts[1].Trim()))
                     : new IPRange(IPAddress.Parse(pattern.Trim()));
@@ -115,14 +115,14 @@ namespace Intelligencia.UrlRewriter.Utilities
                 throw new ArgumentNullException("right");
             }
 
-            byte[] leftBytes = left.GetAddressBytes();
-            byte[] rightBytes = right.GetAddressBytes();
+            var leftBytes = left.GetAddressBytes();
+            var rightBytes = right.GetAddressBytes();
             if (leftBytes.Length != rightBytes.Length)
             {
                 throw new ArgumentOutOfRangeException(MessageProvider.FormatString(Message.AddressesNotOfSameType));
             }
 
-            for (int i = 0; i < leftBytes.Length; i++)
+            for (var i = 0; i < leftBytes.Length; i++)
             {
                 if (leftBytes[i] == rightBytes[i])
                     continue;

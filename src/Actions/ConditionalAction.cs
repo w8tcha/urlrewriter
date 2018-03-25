@@ -1,5 +1,5 @@
 // UrlRewriter - A .NET URL Rewriter module
-// Version 2.0
+// 
 //
 // Copyright 2011 Intelligencia
 // Copyright 2011 Seth Yates
@@ -53,13 +53,13 @@ namespace Intelligencia.UrlRewriter.Actions
             }
 
             // Execute the actions.
-            for (int i = 0; i < Actions.Count; i++)
+            for (var i = 0; i < Actions.Count; i++)
             {
-                IRewriteCondition condition = Actions[i] as IRewriteCondition;
+                var condition = Actions[i] as IRewriteCondition;
                 if (condition == null || condition.IsMatch(context))
                 {
-                    IRewriteAction action = Actions[i];
-                    RewriteProcessing processing = action.Execute(context);
+                    var action = Actions[i];
+                    var processing = action.Execute(context);
                     if (processing != RewriteProcessing.ContinueProcessing)
                     {
                         return processing;

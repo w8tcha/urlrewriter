@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Specialized;
-using Intelligencia.UrlRewriter.Configuration;
-
-namespace Intelligencia.UrlRewriter.Mocks
+﻿namespace Intelligencia.UrlRewriter.Mocks
 {
+    using System.Collections.Specialized;
+
+    using Intelligencia.UrlRewriter.Configuration;
+
     /// <summary>
     /// A mock IConfigurationManager.
     /// </summary>

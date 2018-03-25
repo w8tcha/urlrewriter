@@ -1,5 +1,5 @@
 // UrlRewriter - A .NET URL Rewriter module
-// Version 2.0
+// 
 //
 // Copyright 2011 Intelligencia
 // Copyright 2011 Seth Yates
@@ -9,7 +9,6 @@ using System;
 using System.Configuration;
 using System.IO;
 using System.Net;
-using System.Threading;
 using System.Web;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -66,7 +65,7 @@ namespace Intelligencia.UrlRewriter
                 throw new ArgumentNullException("location");
             }
 
-            string appPath = _httpContext.ApplicationPath;
+            var appPath = _httpContext.ApplicationPath;
             if (appPath.Length > 1)
             {
                 appPath += "/";
@@ -80,7 +79,7 @@ namespace Intelligencia.UrlRewriter
         /// </summary>
         public void Rewrite()
         {
-            string originalUrl = _httpContext.RawUrl.Replace("+", " ");
+            var originalUrl = _httpContext.RawUrl.Replace("+", " ");
             RawUrl = originalUrl;
 
             _configuration.Logger.Debug(MessageProvider.FormatString(Message.StartedProcessing, originalUrl));
@@ -169,11 +168,11 @@ namespace Intelligencia.UrlRewriter
              * ${fn(value)}						value is replacement
              */
 
-            using (StringReader reader = new StringReader(input))
+            using (var reader = new StringReader(input))
             {
-                using (StringWriter writer = new StringWriter())
+                using (var writer = new StringWriter())
                 {
-                    char ch = (char)reader.Read();
+                    var ch = (char)reader.Read();
                     while (ch != EndChar)
                     {
                         if (ch == '$')
@@ -200,14 +199,14 @@ namespace Intelligencia.UrlRewriter
 
         private void ProcessRules(IRewriteContext context, IList<IRewriteAction> rewriteRules, int restarts)
         {
-            foreach (IRewriteAction action in rewriteRules)
+            foreach (var action in rewriteRules)
             {
                 // If the rule is conditional, ensure the conditions are met.
-                IRewriteCondition condition = action as IRewriteCondition;
+                var condition = action as IRewriteCondition;
                 if (condition == null || condition.IsMatch(context))
                 {
                     // Execute the action.
-                    RewriteProcessing processing = action.Execute(context);
+                    var processing = action.Execute(context);
 
                     // If the action is Stop, then break out of the processing loop
                     if (processing == RewriteProcessing.StopProcessing)
@@ -242,18 +241,18 @@ namespace Intelligencia.UrlRewriter
 
         private bool HandleDefaultDocument(IRewriteContext context)
         {
-            Uri uri = new Uri(_httpContext.RequestUrl, context.Location);
-            UriBuilder b = new UriBuilder(uri);
+            var uri = new Uri(_httpContext.RequestUrl, context.Location);
+            var b = new UriBuilder(uri);
             b.Path += "/";
             uri = b.Uri;
             if (uri.Host == _httpContext.RequestUrl.Host)
             {
-                string filename = _httpContext.MapPath(uri.AbsolutePath);
+                var filename = _httpContext.MapPath(uri.AbsolutePath);
                 if (Directory.Exists(filename))
                 {
-                    foreach (string document in _configuration.DefaultDocuments)
+                    foreach (var document in _configuration.DefaultDocuments)
                     {
-                        string pathName = Path.Combine(filename, document);
+                        var pathName = Path.Combine(filename, document);
                         if (File.Exists(pathName))
                         {
                             context.Location = new Uri(uri, document).AbsolutePath;
@@ -270,10 +269,10 @@ namespace Intelligencia.UrlRewriter
         {
             if ((String.Compare(context.Location, _httpContext.RawUrl) != 0) && ((int)context.StatusCode < 300))
             {
-                Uri uri = new Uri(_httpContext.RequestUrl, context.Location);
+                var uri = new Uri(_httpContext.RequestUrl, context.Location);
                 if (uri.Host == _httpContext.RequestUrl.Host)
                 {
-                    string filename = _httpContext.MapPath(uri.AbsolutePath);
+                    var filename = _httpContext.MapPath(uri.AbsolutePath);
                     if (!File.Exists(filename))
                     {
                         _configuration.Logger.Debug(MessageProvider.FormatString(Message.ResultNotFound, filename));
@@ -300,7 +299,7 @@ namespace Intelligencia.UrlRewriter
                 throw new HttpException((int)context.StatusCode, context.StatusCode.ToString());
             }
 
-            IRewriteErrorHandler handler = _configuration.ErrorHandlers[(int) context.StatusCode];
+            var handler = _configuration.ErrorHandlers[(int) context.StatusCode];
 
             try
             {
@@ -319,7 +318,7 @@ namespace Intelligencia.UrlRewriter
                 // Any other error should result in a 500 Internal Server Error.
                 _configuration.Logger.Error(exc.Message, exc);
 
-                HttpStatusCode serverError = HttpStatusCode.InternalServerError;
+                var serverError = HttpStatusCode.InternalServerError;
                 throw new HttpException((int)serverError, serverError.ToString());
             }
         }
@@ -334,7 +333,7 @@ namespace Intelligencia.UrlRewriter
 
         private void AppendCookies(IRewriteContext context)
         {
-            for (int i = 0; i < context.ResponseCookies.Count; i++)
+            for (var i = 0; i < context.ResponseCookies.Count; i++)
             {
                 _httpContext.SetResponseCookie(context.ResponseCookies[i]);
             }
@@ -348,8 +347,8 @@ namespace Intelligencia.UrlRewriter
             // Add in the properties as context items, so these will be accessible to the handler
             foreach (string propertyKey in context.Properties.Keys)
             {
-                string itemsKey = String.Format("Rewriter.{0}", propertyKey);
-                string itemsValue = context.Properties[propertyKey];
+                var itemsKey = String.Format("Rewriter.{0}", propertyKey);
+                var itemsValue = context.Properties[propertyKey];
 
                 _httpContext.Items[itemsKey] = itemsValue;
             }
@@ -385,10 +384,10 @@ namespace Intelligencia.UrlRewriter
         private string Reduce(IRewriteContext context, StringReader reader)
         {
             string result;
-            char ch = (char)reader.Read();
+            var ch = (char)reader.Read();
             if (Char.IsDigit(ch))
             {
-                string num = ch.ToString();
+                var num = ch.ToString();
                 if (Char.IsDigit((char)reader.Peek()))
                 {
                     ch = (char)reader.Read();
@@ -396,7 +395,7 @@ namespace Intelligencia.UrlRewriter
                 }
                 if (context.LastMatch != null)
                 {
-                    Group group = context.LastMatch.Groups[Convert.ToInt32(num)];
+                    var group = context.LastMatch.Groups[Convert.ToInt32(num)];
                     result = (group == null) ? String.Empty : group.Value;
                 }
                 else
@@ -408,7 +407,7 @@ namespace Intelligencia.UrlRewriter
             {
                 string expr;
 
-                using (StringWriter writer = new StringWriter())
+                using (var writer = new StringWriter())
                 {
                     ch = (char)reader.Read();
                     while (ch != '>' && ch != EndChar)
@@ -429,7 +428,7 @@ namespace Intelligencia.UrlRewriter
 
                 if (context.LastMatch != null)
                 {
-                    Group group = context.LastMatch.Groups[expr];
+                    var group = context.LastMatch.Groups[expr];
                     result = (group == null) ? String.Empty : group.Value;
                 }
                 else
@@ -440,10 +439,10 @@ namespace Intelligencia.UrlRewriter
             else if (ch == '{')
             {
                 string expr;
-                bool isMap = false;
-                bool isFunction = false;
+                var isMap = false;
+                var isFunction = false;
 
-                using (StringWriter writer = new StringWriter())
+                using (var writer = new StringWriter())
                 {
                     ch = (char)reader.Read();
                     while (ch != '}' && ch != EndChar)
@@ -472,12 +471,12 @@ namespace Intelligencia.UrlRewriter
 
                 if (isMap)
                 {
-                    Match match = Regex.Match(expr, @"^([^\:]+)\:([^\|]+)(\|(.+))?$");
-                    string mapName = match.Groups[1].Value;
-                    string mapArgument = match.Groups[2].Value;
-                    string mapDefault = match.Groups[4].Value;
+                    var match = Regex.Match(expr, @"^([^\:]+)\:([^\|]+)(\|(.+))?$");
+                    var mapName = match.Groups[1].Value;
+                    var mapArgument = match.Groups[2].Value;
+                    var mapDefault = match.Groups[4].Value;
 
-                    IRewriteTransform tx = _configuration.TransformFactory.GetTransform(mapName);
+                    var tx = _configuration.TransformFactory.GetTransform(mapName);
                     if (tx == null)
                     {
                         throw new ConfigurationErrorsException(MessageProvider.FormatString(Message.MappingNotFound, mapName));
@@ -487,11 +486,11 @@ namespace Intelligencia.UrlRewriter
                 }
                 else if (isFunction)
                 {
-                    Match match = Regex.Match(expr, @"^([^\(]+)\((.+)\)$");
-                    string functionName = match.Groups[1].Value;
-                    string functionArgument = match.Groups[2].Value;
+                    var match = Regex.Match(expr, @"^([^\(]+)\((.+)\)$");
+                    var functionName = match.Groups[1].Value;
+                    var functionArgument = match.Groups[2].Value;
 
-                    IRewriteTransform tx = _configuration.TransformFactory.GetTransform(functionName);
+                    var tx = _configuration.TransformFactory.GetTransform(functionName);
                     if (tx == null)
                     {
                         throw new ConfigurationErrorsException(MessageProvider.FormatString(Message.TransformFunctionNotFound, functionName));

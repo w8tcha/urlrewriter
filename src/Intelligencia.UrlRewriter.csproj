@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
     <ProductVersion>9.0.30729</ProductVersion>
@@ -28,12 +28,7 @@
     </UpgradeBackupLocation>
     <SignAssembly>true</SignAssembly>
     <OldToolsVersion>4.0</OldToolsVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -46,64 +41,56 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>bin\Debug\</OutputPath>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-    <BaseAddress>285212672</BaseAddress>
-    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
-    <ConfigurationOverrideFile>
-    </ConfigurationOverrideFile>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DocumentationFile>
-    </DocumentationFile>
     <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\YetAnotherForum.NET\Bin</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
     <FileAlignment>4096</FileAlignment>
-    <NoStdLib>false</NoStdLib>
-    <NoWarn>
-    </NoWarn>
-    <Optimize>false</Optimize>
-    <RegisterForComInterop>false</RegisterForComInterop>
-    <RemoveIntegerChecks>false</RemoveIntegerChecks>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <WarningLevel>4</WarningLevel>
     <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>bin\Release\</OutputPath>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-    <BaseAddress>285212672</BaseAddress>
-    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
-    <ConfigurationOverrideFile>
-    </ConfigurationOverrideFile>
+    <OutputPath>..\YetAnotherForum.NET\Bin</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
-    <DocumentationFile>Intelligencia.UrlRewriter.xml</DocumentationFile>
-    <DebugSymbols>false</DebugSymbols>
-    <FileAlignment>4096</FileAlignment>
-    <NoStdLib>false</NoStdLib>
-    <NoWarn>
-    </NoWarn>
+    <BaseAddress>285212672</BaseAddress>
+    <DocumentationFile>
+    </DocumentationFile>
     <Optimize>true</Optimize>
-    <RegisterForComInterop>false</RegisterForComInterop>
-    <RemoveIntegerChecks>false</RemoveIntegerChecks>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <WarningLevel>4</WarningLevel>
-    <DebugType>none</DebugType>
+    <FileAlignment>4096</FileAlignment>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Package|AnyCPU'">
+    <OutputPath>bin\Package\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <Optimize>true</Optimize>
+    <FileAlignment>4096</FileAlignment>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
     <Reference Include="System.configuration" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
     <Reference Include="System.Data">
       <Name>System.Data</Name>
     </Reference>
@@ -115,97 +102,242 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actions\AddHeaderAction.cs" />
-    <Compile Include="Actions\ConditionalAction.cs" />
-    <Compile Include="Actions\ForbiddenAction.cs" />
-    <Compile Include="Actions\GoneAction.cs" />
-    <Compile Include="Actions\IRewriteAction.cs" />
-    <Compile Include="Actions\MethodNotAllowedAction.cs" />
-    <Compile Include="Actions\NotFoundAction.cs" />
-    <Compile Include="Actions\NotImplementedAction.cs" />
-    <Compile Include="Actions\RedirectAction.cs" />
-    <Compile Include="Actions\RewriteAction.cs" />
+    <Compile Include="Actions\AddHeaderAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Actions\ConditionalAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Actions\ForbiddenAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Actions\GoneAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Actions\IRewriteAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Actions\MethodNotAllowedAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Actions\NotFoundAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Actions\NotImplementedAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Actions\RedirectAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Actions\RewriteAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Actions\SetAppSettingPropertyAction.cs" />
-    <Compile Include="Actions\SetCookieAction.cs" />
-    <Compile Include="Actions\SetLocationAction.cs" />
-    <Compile Include="Actions\SetPropertyAction.cs" />
-    <Compile Include="Actions\SetStatusAction.cs" />
-    <Compile Include="Conditions\AddressCondition.cs" />
-    <Compile Include="Conditions\ExistsCondition.cs" />
-    <Compile Include="Conditions\IRewriteCondition.cs" />
-    <Compile Include="Conditions\MatchCondition.cs" />
-    <Compile Include="Conditions\MethodCondition.cs" />
-    <Compile Include="Conditions\NegativeCondition.cs" />
-    <Compile Include="Conditions\PropertyMatchCondition.cs" />
-    <Compile Include="Conditions\UrlMatchCondition.cs" />
-    <Compile Include="Configuration\ActionParserFactory.cs" />
-    <Compile Include="Configuration\ConditionParserPipeline.cs" />
+    <Compile Include="Actions\SetCookieAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Actions\SetLocationAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Actions\SetPropertyAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Actions\SetStatusAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Configuration\ConfigurationManagerFacade.cs" />
     <Compile Include="Configuration\IConfigurationManager.cs" />
     <Compile Include="Configuration\IRewriterConfiguration.cs" />
-    <Compile Include="Configuration\RewriterConfiguration.cs" />
-    <Compile Include="Configuration\RewriterConfigurationReader.cs" />
-    <Compile Include="Configuration\RewriterConfigurationSectionHandler.cs" />
-    <Compile Include="Configuration\TransformFactory.cs" />
-    <Compile Include="Errors\DefaultErrorHandler.cs" />
-    <Compile Include="Errors\IRewriteErrorHandler.cs" />
     <Compile Include="Extensions\ListExtensions.cs" />
     <Compile Include="Extensions\XmlNodeExtensions.cs" />
-    <Compile Include="Form.cs" />
-    <Compile Include="FormRewriterControlAdapter.cs" />
     <Compile Include="IRewriteContext.cs" />
-    <Compile Include="Logging\DebugLogger.cs" />
-    <Compile Include="Logging\IRewriteLogger.cs" />
-    <Compile Include="Logging\NullLogger.cs" />
     <Compile Include="Logging\TraceLogger.cs" />
-    <Compile Include="Parsers\AddHeaderActionParser.cs" />
-    <Compile Include="Parsers\AddressConditionParser.cs" />
-    <Compile Include="Parsers\IfConditionActionParser.cs" />
-    <Compile Include="Parsers\ExistsConditionParser.cs" />
-    <Compile Include="Parsers\ForbiddenActionParser.cs" />
-    <Compile Include="Parsers\GoneActionParser.cs" />
-    <Compile Include="Parsers\HeaderMatchConditionParser.cs" />
-    <Compile Include="Parsers\IRewriteActionParser.cs" />
-    <Compile Include="Parsers\IRewriteConditionParser.cs" />
-    <Compile Include="Parsers\MethodConditionParser.cs" />
-    <Compile Include="Parsers\NotAllowedActionParser.cs" />
-    <Compile Include="Parsers\NotFoundActionParser.cs" />
-    <Compile Include="Parsers\NotImplementedActionParser.cs" />
-    <Compile Include="Parsers\PropertyMatchConditionParser.cs" />
-    <Compile Include="Parsers\RedirectActionParser.cs" />
-    <Compile Include="Parsers\RewriteActionParser.cs" />
-    <Compile Include="Parsers\RewriteActionParserBase.cs" />
     <Compile Include="Parsers\SetAppSettingPropertyActionParser.cs" />
-    <Compile Include="Parsers\SetCookieActionParser.cs" />
-    <Compile Include="Parsers\SetPropertyActionParser.cs" />
-    <Compile Include="Parsers\SetStatusActionParser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Conditions\NegativeCondition.cs" />
     <Compile Include="Parsers\UnlessConditionActionParser.cs" />
-    <Compile Include="Parsers\UrlMatchConditionParser.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RewriteContext.cs" />
     <Compile Include="RewriteFormHtmlTextWriter.cs" />
-    <Compile Include="RewriteProcessing.cs" />
-    <Compile Include="RewriterEngine.cs" />
-    <Compile Include="RewriterHttpModule.cs" />
-    <Compile Include="Transforms\Base64DecodeTransform.cs" />
-    <Compile Include="Transforms\Base64Transform.cs" />
-    <Compile Include="Transforms\DecodeTransform.cs" />
-    <Compile Include="Transforms\EncodeTransform.cs" />
-    <Compile Include="Transforms\IRewriteTransform.cs" />
-    <Compile Include="Transforms\LowerTransform.cs" />
-    <Compile Include="Transforms\StaticMappingTransform.cs" />
-    <Compile Include="Transforms\UpperTransform.cs" />
-    <Compile Include="Utilities\Constants.cs" />
-    <Compile Include="Utilities\HttpContextFacade.cs" />
+    <Compile Include="FormRewriterControlAdapter.cs" />
+    <Compile Include="Conditions\AddressCondition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Conditions\ExistsCondition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Conditions\IRewriteCondition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Conditions\MatchCondition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Conditions\MethodCondition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Conditions\PropertyMatchCondition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Conditions\UrlMatchCondition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\ActionParserFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\ConditionParserPipeline.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\RewriterConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\RewriterConfigurationReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\RewriterConfigurationSectionHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\TransformFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Errors\DefaultErrorHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Errors\IRewriteErrorHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Form.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Logging\DebugLogger.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Logging\IRewriteLogger.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Logging\NullLogger.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parsers\AddHeaderActionParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parsers\AddressConditionParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parsers\IfConditionActionParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parsers\ExistsConditionParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parsers\ForbiddenActionParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parsers\GoneActionParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parsers\HeaderMatchConditionParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parsers\IRewriteActionParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parsers\IRewriteConditionParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parsers\MethodConditionParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parsers\NotAllowedActionParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parsers\NotFoundActionParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parsers\NotImplementedActionParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parsers\PropertyMatchConditionParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parsers\RedirectActionParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parsers\RewriteActionParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parsers\RewriteActionParserBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parsers\SetCookieActionParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parsers\SetPropertyActionParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parsers\SetStatusActionParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parsers\UrlMatchConditionParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RewriteContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RewriteProcessing.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RewriterEngine.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RewriterHttpModule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Transforms\Base64DecodeTransform.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Transforms\Base64Transform.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Transforms\DecodeTransform.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Transforms\EncodeTransform.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Transforms\IRewriteTransform.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Transforms\LowerTransform.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Transforms\StaticMappingTransform.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Transforms\UpperTransform.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utilities\Constants.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utilities\HttpContextFacade.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Utilities\IHttpContext.cs" />
-    <Compile Include="Utilities\IPRange.cs" />
-    <Compile Include="Utilities\Message.cs" />
-    <Compile Include="Utilities\MessageProvider.cs" />
-    <Compile Include="Utilities\TypeHelper.cs" />
+    <Compile Include="Utilities\IPRange.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utilities\Message.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utilities\MessageProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utilities\TypeHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <EmbeddedResource Include="Messages.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="UrlRewriter.ndoc" />
     <None Include="UrlRewriter.snk" />
   </ItemGroup>
   <ItemGroup>
@@ -214,26 +346,19 @@
       <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
+      <Install>true</Install>
     </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="License.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

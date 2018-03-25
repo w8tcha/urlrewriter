@@ -1,5 +1,5 @@
 // UrlRewriter - A .NET URL Rewriter module
-// Version 2.0
+// 
 //
 // Copyright 2011 Intelligencia
 // Copyright 2011 Seth Yates
@@ -62,7 +62,7 @@ namespace Intelligencia.UrlRewriter.Actions
                 throw new ArgumentNullException("context");
             }
 
-            HttpCookie cookie = new HttpCookie(Name, Value);
+            var cookie = new HttpCookie(Name, Value);
             context.ResponseCookies.Add(cookie);
 
             return RewriteProcessing.ContinueProcessing;

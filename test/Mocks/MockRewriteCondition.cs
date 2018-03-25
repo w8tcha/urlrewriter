@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Intelligencia.UrlRewriter.Mocks
+﻿namespace Intelligencia.UrlRewriter.Mocks
 {
     /// <summary>
     /// A mock IRewriteCondition

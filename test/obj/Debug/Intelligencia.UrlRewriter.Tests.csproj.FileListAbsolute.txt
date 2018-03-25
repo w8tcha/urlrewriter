@@ -1,0 +1,13 @@
+C:\Users\Watcher\Documents\GitHub\urlrewriter\test\bin\Debug\README.txt
+C:\Users\Watcher\Documents\GitHub\urlrewriter\test\bin\Debug\Intelligencia.UrlRewriter.Tests.dll.config
+C:\Users\Watcher\Documents\GitHub\urlrewriter\test\bin\Debug\Intelligencia.UrlRewriter.Tests.dll
+C:\Users\Watcher\Documents\GitHub\urlrewriter\test\bin\Debug\Intelligencia.UrlRewriter.Tests.pdb
+C:\Users\Watcher\Documents\GitHub\urlrewriter\test\bin\Debug\Intelligencia.UrlRewriter.dll
+C:\Users\Watcher\Documents\GitHub\urlrewriter\test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Watcher\Documents\GitHub\urlrewriter\test\bin\Debug\Intelligencia.UrlRewriter.pdb
+C:\Users\Watcher\Documents\GitHub\urlrewriter\test\obj\Debug\Intelligencia.UrlRewriter.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Watcher\Documents\GitHub\urlrewriter\test\obj\Debug\Intelligencia.UrlRewriter.Tests.csproj.CoreCompileInputs.cache
+C:\Users\Watcher\Documents\GitHub\urlrewriter\test\obj\Debug\Intelligencia.UrlRewriter.Tests.csproj.CopyComplete
+C:\Users\Watcher\Documents\GitHub\urlrewriter\test\obj\Debug\Intelligencia.UrlRewriter.Tests.dll
+C:\Users\Watcher\Documents\GitHub\urlrewriter\test\obj\Debug\Intelligencia.UrlRewriter.Tests.pdb
+C:\Users\Watcher\Documents\GitHub\urlrewriter\test\bin\Debug\de\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll

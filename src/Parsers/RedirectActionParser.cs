@@ -1,5 +1,5 @@
 // UrlRewriter - A .NET URL Rewriter module
-// Version 2.0
+// 
 //
 // Copyright 2011 Intelligencia
 // Copyright 2011 Seth Yates
@@ -7,7 +7,7 @@
 
 using System;
 using System.Xml;
-using System.Configuration;
+
 using Intelligencia.UrlRewriter.Actions;
 using Intelligencia.UrlRewriter.Configuration;
 using Intelligencia.UrlRewriter.Utilities;
@@ -56,10 +56,10 @@ namespace Intelligencia.UrlRewriter.Parsers
                 throw new ArgumentNullException("node");
             }
 
-            string to = node.GetRequiredAttribute(Constants.AttrTo, true);
-            bool permanent = node.GetBooleanAttribute(Constants.AttrPermanent) ?? true;
+            var to = node.GetRequiredAttribute(Constants.AttrTo, true);
+            var permanent = node.GetBooleanAttribute(Constants.AttrPermanent) ?? true;
 
-            RedirectAction action = new RedirectAction(to, permanent);
+            var action = new RedirectAction(to, permanent);
             ParseConditions(node, action.Conditions, false, config);
             return action;
         }

@@ -1,5 +1,5 @@
 // UrlRewriter - A .NET URL Rewriter module
-// Version 2.0
+// 
 //
 // Copyright 2011 Intelligencia
 // Copyright 2011 Seth Yates
@@ -60,11 +60,11 @@ namespace Intelligencia.UrlRewriter.Parsers
                 throw new ArgumentNullException("config");
             }
 
-            string to = node.GetRequiredAttribute(Constants.AttrTo, true);
+            var to = node.GetRequiredAttribute(Constants.AttrTo, true);
 
-            RewriteProcessing processing = ParseProcessing(node);
+            var processing = ParseProcessing(node);
 
-            RewriteAction action = new RewriteAction(to, processing);
+            var action = new RewriteAction(to, processing);
             ParseConditions(node, action.Conditions, false, config);
 
             return action;
@@ -72,7 +72,7 @@ namespace Intelligencia.UrlRewriter.Parsers
 
         private RewriteProcessing ParseProcessing(XmlNode node)
         {
-            string processing = node.GetOptionalAttribute(Constants.AttrProcessing);
+            var processing = node.GetOptionalAttribute(Constants.AttrProcessing);
             if (processing == null)
             {
                 // Default to ContinueProcessing if processing attribute is missing.

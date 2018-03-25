@@ -1,9 +1,11 @@
-﻿using System;
-using Intelligencia.UrlRewriter.Mocks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace Intelligencia.UrlRewriter.Actions.Tests
+﻿namespace Intelligencia.UrlRewriter.Actions.Tests
 {
+    using System;
+
+    using Intelligencia.UrlRewriter.Mocks;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     public class AddHeaderActionTest
     {

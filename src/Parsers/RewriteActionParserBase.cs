@@ -1,5 +1,5 @@
 // UrlRewriter - A .NET URL Rewriter module
-// Version 2.0
+// 
 //
 // Copyright 2011 Intelligencia
 // Copyright 2011 Seth Yates
@@ -65,9 +65,9 @@ namespace Intelligencia.UrlRewriter.Parsers
             }
 
             // Parse attribute-based conditions.
-            foreach (IRewriteConditionParser parser in config.ConditionParserPipeline)
+            foreach (var parser in config.ConditionParserPipeline)
             {
-                IRewriteCondition condition = parser.Parse(node);
+                var condition = parser.Parse(node);
                 if (condition != null)
                 {
                     if (negative)
@@ -80,7 +80,7 @@ namespace Intelligencia.UrlRewriter.Parsers
             }
 
             // Now, process the nested <and> conditions.
-            XmlNode childNode = node.FirstChild;
+            var childNode = node.FirstChild;
             while (childNode != null)
             {
                 if (childNode.NodeType == XmlNodeType.Element)
@@ -89,7 +89,7 @@ namespace Intelligencia.UrlRewriter.Parsers
                     {
                         ParseConditions(childNode, conditions, negative, config);
 
-                        XmlNode childNode2 = childNode.NextSibling;
+                        var childNode2 = childNode.NextSibling;
                         node.RemoveChild(childNode);
                         childNode = childNode2;
                         continue;

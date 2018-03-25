@@ -1,5 +1,5 @@
 // UrlRewriter - A .NET URL Rewriter module
-// Version 2.0
+// 
 //
 // Copyright 2011 Intelligencia
 // Copyright 2011 Seth Yates
@@ -9,7 +9,7 @@ using System;
 using System.Xml;
 using System.Configuration;
 using System.Collections.Specialized;
-using System.Collections.Generic;
+
 using Intelligencia.UrlRewriter.Utilities;
 using Intelligencia.UrlRewriter.Errors;
 using Intelligencia.UrlRewriter.Transforms;
@@ -81,11 +81,11 @@ namespace Intelligencia.UrlRewriter.Configuration
                 throw new ConfigurationErrorsException(MessageProvider.FormatString(Message.ElementNoElements, Constants.ElementRegister), node);
             }
 
-            string type = node.GetRequiredAttribute(Constants.AttrTransform);
+            var type = node.GetRequiredAttribute(Constants.AttrTransform);
 
             // Transform type specified.
             // Create an instance and add it as the mapper handler for this map.
-            IRewriteTransform transform = TypeHelper.Activate(type, null) as IRewriteTransform;
+            var transform = TypeHelper.Activate(type, null) as IRewriteTransform;
             if (transform == null)
             {
                 throw new ConfigurationErrorsException(MessageProvider.FormatString(Message.InvalidTypeSpecified, type, typeof(IRewriteTransform)), node);
@@ -101,11 +101,11 @@ namespace Intelligencia.UrlRewriter.Configuration
                 throw new ConfigurationErrorsException(MessageProvider.FormatString(Message.ElementNoElements, Constants.ElementRegister), node);
             }
 
-            string type = node.GetRequiredAttribute(Constants.AttrLogger);
+            var type = node.GetRequiredAttribute(Constants.AttrLogger);
 
             // Logger type specified.  Create an instance and add it
             // as the mapper handler for this map.
-            IRewriteLogger logger = TypeHelper.Activate(type, null) as IRewriteLogger;
+            var logger = TypeHelper.Activate(type, null) as IRewriteLogger;
             if (logger != null)
             {
                 config.Logger = logger;
@@ -119,16 +119,16 @@ namespace Intelligencia.UrlRewriter.Configuration
                 throw new ConfigurationErrorsException(MessageProvider.FormatString(Message.ElementNoElements, Constants.ElementRegister), node);
             }
 
-            string type = node.GetRequiredAttribute(Constants.AttrParser);
+            var type = node.GetRequiredAttribute(Constants.AttrParser);
 
-            object parser = TypeHelper.Activate(type, null);
-            IRewriteActionParser actionParser = parser as IRewriteActionParser;
+            var parser = TypeHelper.Activate(type, null);
+            var actionParser = parser as IRewriteActionParser;
             if (actionParser != null)
             {
                 config.ActionParserFactory.Add(actionParser);
             }
 
-            IRewriteConditionParser conditionParser = parser as IRewriteConditionParser;
+            var conditionParser = parser as IRewriteConditionParser;
             if (conditionParser != null)
             {
                 config.ConditionParserPipeline.Add(conditionParser);
@@ -148,7 +148,7 @@ namespace Intelligencia.UrlRewriter.Configuration
 
         private static void ReadErrorHandler(XmlNode node, IRewriterConfiguration config)
         {
-            string code = node.GetRequiredAttribute(Constants.AttrCode);
+            var code = node.GetRequiredAttribute(Constants.AttrCode);
 
             XmlNode typeNode = node.Attributes[Constants.AttrType];
             XmlNode urlNode = node.Attributes[Constants.AttrUrl];
@@ -184,18 +184,18 @@ namespace Intelligencia.UrlRewriter.Configuration
         private static void ReadMapping(XmlNode node, IRewriterConfiguration config)
         {
             // Name attribute.
-            string mappingName = node.GetRequiredAttribute(Constants.AttrName);
+            var mappingName = node.GetRequiredAttribute(Constants.AttrName);
 
             // Mapper type not specified.  Load in the hash map.
-            StringDictionary map = new StringDictionary();
+            var map = new StringDictionary();
             foreach (XmlNode mapNode in node.ChildNodes)
             {
                 if (mapNode.NodeType == XmlNodeType.Element)
                 {
                     if (mapNode.LocalName == Constants.ElementMap)
                     {
-                        string fromValue = mapNode.GetRequiredAttribute(Constants.AttrFrom, true);
-                        string toValue = mapNode.GetRequiredAttribute(Constants.AttrTo, true);
+                        var fromValue = mapNode.GetRequiredAttribute(Constants.AttrFrom, true);
+                        var toValue = mapNode.GetRequiredAttribute(Constants.AttrTo, true);
 
                         map.Add(fromValue, toValue);
                     }
@@ -213,11 +213,11 @@ namespace Intelligencia.UrlRewriter.Configuration
 
         private static void ReadRule(XmlNode node, IRewriterConfiguration config)
         {
-            bool parsed = false;
-            IList<IRewriteActionParser> parsers = config.ActionParserFactory.GetParsers(node.LocalName);
+            var parsed = false;
+            var parsers = config.ActionParserFactory.GetParsers(node.LocalName);
             if (parsers != null)
             {
-                foreach (IRewriteActionParser parser in parsers)
+                foreach (var parser in parsers)
                 {
                     if (!parser.AllowsNestedActions && node.ChildNodes.Count > 0)
                     {
@@ -229,7 +229,7 @@ namespace Intelligencia.UrlRewriter.Configuration
                         throw new ConfigurationErrorsException(MessageProvider.FormatString(Message.ElementNoAttributes, parser.Name), node);
                     }
 
-                    IRewriteAction rule = parser.Parse(node, config);
+                    var rule = parser.Parse(node, config);
                     if (rule != null)
                     {
                         config.Rules.Add(rule);

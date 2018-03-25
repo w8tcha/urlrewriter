@@ -1,5 +1,5 @@
 ﻿// UrlRewriter - A .NET URL Rewriter module
-// Version 2.0
+// 
 //
 // Copyright 2011 Intelligencia
 // Copyright 2011 Seth Yates
@@ -45,7 +45,7 @@ namespace Intelligencia.UrlRewriter
                 throw new ArgumentNullException("node");
             }
 
-            XmlNode attribute = node.Attributes.GetNamedItem(attributeName);
+            var attribute = node.Attributes.GetNamedItem(attributeName);
             if (attribute == null)
             {
                 throw new ConfigurationErrorsException(MessageProvider.FormatString(Message.AttributeRequired, attributeName), node);
@@ -86,7 +86,7 @@ namespace Intelligencia.UrlRewriter
                 throw new ArgumentNullException("node");
             }
 
-            XmlNode attribute = node.Attributes.GetNamedItem(attributeName);
+            var attribute = node.Attributes.GetNamedItem(attributeName);
             if (attribute == null)
             {
                 return defaultValue;

@@ -1,5 +1,5 @@
 // UrlRewriter - A .NET URL Rewriter module
-// Version 2.0
+// 
 //
 // Copyright 2011 Intelligencia
 // Copyright 2011 Seth Yates
@@ -22,7 +22,7 @@ namespace Intelligencia.UrlRewriter.Utilities
         /// <returns>The object</returns>
         public static object Activate(string fullTypeName, object[] args)
         {
-            string[] components = fullTypeName.Split(new char[] { ',' }, 2);
+            var components = fullTypeName.Split(new char[] { ',' }, 2);
             if (components.Length != 2)
             {
                 throw new ArgumentOutOfRangeException("fullTypeName", fullTypeName, MessageProvider.FormatString(Message.FullTypeNameRequiresAssemblyName));

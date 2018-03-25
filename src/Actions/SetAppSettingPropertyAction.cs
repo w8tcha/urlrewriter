@@ -1,5 +1,5 @@
 ﻿// UrlRewriter - A .NET URL Rewriter module
-// Version 2.0
+// 
 //
 // Copyright 2011 Intelligencia
 // Copyright 2011 Seth Yates
@@ -63,7 +63,7 @@ namespace Intelligencia.UrlRewriter.Actions
             }
 
             // If the value cannot be found in AppSettings, default to an empty string.
-            string appSettingValue = context.ConfigurationManager.AppSettings[_appSettingsKey] ?? String.Empty;
+            var appSettingValue = context.ConfigurationManager.AppSettings[_appSettingsKey] ?? String.Empty;
             context.Properties.Set(Name, appSettingValue);
 
             return RewriteProcessing.ContinueProcessing;

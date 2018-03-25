@@ -1,5 +1,5 @@
 ﻿// UrlRewriter - A .NET URL Rewriter module
-// Version 2.0
+// 
 //
 // Copyright 2011 Intelligencia
 // Copyright 2011 Seth Yates
@@ -59,8 +59,8 @@ namespace Intelligencia.UrlRewriter.Parsers
                 throw new ArgumentNullException("config");
             }
 
-            string propertyName = node.GetRequiredAttribute(Constants.AttrProperty);
-            string appSettingKey = node.GetRequiredAttribute(Constants.AttrKey);
+            var propertyName = node.GetRequiredAttribute(Constants.AttrProperty);
+            var appSettingKey = node.GetRequiredAttribute(Constants.AttrKey);
 
             return new SetAppSettingPropertyAction(propertyName, appSettingKey);
         }

@@ -22,7 +22,7 @@ namespace Intelligencia.UrlRewriter
             }
 
             // Ensure all the conditions are met, i.e. return false if any are not met.
-            foreach (IRewriteCondition condition in conditions)
+            foreach (var condition in conditions)
             {
                 if (!condition.IsMatch(context))
                 {

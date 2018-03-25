@@ -1,0 +1,29 @@
+C:\Users\Watcher\Documents\GitHub\YAFNET\yafsrc\URLRewriter.NET\obj\Debug\Intelligencia.UrlRewriter.csprojResolveAssemblyReference.cache
+C:\Users\Watcher\Documents\GitHub\YAFNET\yafsrc\URLRewriter.NET\obj\Debug\Intelligencia.UrlRewriter.Messages.resources
+C:\Users\Watcher\Documents\GitHub\YAFNET\yafsrc\URLRewriter.NET\obj\Debug\Intelligencia.UrlRewriter.csproj.GenerateResource.Cache
+C:\Users\Watcher\Documents\GitHub\YAFNET\yafsrc\YetAnotherForum.NET\Bin\Intelligencia.UrlRewriter.dll
+C:\Users\Watcher\Documents\GitHub\YAFNET\yafsrc\YetAnotherForum.NET\Bin\Intelligencia.UrlRewriter.pdb
+C:\Users\Watcher\Documents\GitHub\YAFNET\yafsrc\URLRewriter.NET\obj\Debug\Intelligencia.UrlRewriter.dll
+C:\Users\Watcher\Documents\GitHub\YAFNET\yafsrc\URLRewriter.NET\obj\Debug\Intelligencia.UrlRewriter.pdb
+C:\YAFNET\yafsrc\YetAnotherForum.NET\Bin\Intelligencia.UrlRewriter.dll
+C:\YAFNET\yafsrc\YetAnotherForum.NET\Bin\Intelligencia.UrlRewriter.pdb
+C:\YAFNET\yafsrc\URLRewriter.NET\obj\Debug\Intelligencia.UrlRewriter.csprojResolveAssemblyReference.cache
+C:\YAFNET\yafsrc\URLRewriter.NET\obj\Debug\Intelligencia.UrlRewriter.Messages.resources
+C:\YAFNET\yafsrc\URLRewriter.NET\obj\Debug\Intelligencia.UrlRewriter.csproj.GenerateResource.Cache
+C:\YAFNET\yafsrc\URLRewriter.NET\obj\Debug\Intelligencia.UrlRewriter.dll
+C:\YAFNET\yafsrc\URLRewriter.NET\obj\Debug\Intelligencia.UrlRewriter.pdb
+C:\Users\Watcher\Documents\Projects\Visual Studio 2017\Projects\YAFNET\YAF.NET\yafsrc\YetAnotherForum.NET\Bin\Intelligencia.UrlRewriter.dll
+C:\Users\Watcher\Documents\Projects\Visual Studio 2017\Projects\YAFNET\YAF.NET\yafsrc\YetAnotherForum.NET\Bin\Intelligencia.UrlRewriter.pdb
+C:\Users\Watcher\Documents\Projects\Visual Studio 2017\Projects\YAFNET\YAF.NET\yafsrc\URLRewriter.NET\obj\Debug\Intelligencia.UrlRewriter.csprojResolveAssemblyReference.cache
+C:\Users\Watcher\Documents\Projects\Visual Studio 2017\Projects\YAFNET\YAF.NET\yafsrc\URLRewriter.NET\obj\Debug\Intelligencia.UrlRewriter.Messages.resources
+C:\Users\Watcher\Documents\Projects\Visual Studio 2017\Projects\YAFNET\YAF.NET\yafsrc\URLRewriter.NET\obj\Debug\Intelligencia.UrlRewriter.csproj.GenerateResource.Cache
+C:\Users\Watcher\Documents\Projects\Visual Studio 2017\Projects\YAFNET\YAF.NET\yafsrc\URLRewriter.NET\obj\Debug\Intelligencia.UrlRewriter.dll
+C:\Users\Watcher\Documents\Projects\Visual Studio 2017\Projects\YAFNET\YAF.NET\yafsrc\URLRewriter.NET\obj\Debug\Intelligencia.UrlRewriter.pdb
+C:\Users\Watcher\Documents\GitHub\urlrewriter\src\obj\Debug\Intelligencia.UrlRewriter.csprojResolveAssemblyReference.cache
+C:\Users\Watcher\Documents\GitHub\urlrewriter\src\obj\Debug\Intelligencia.UrlRewriter.Messages.resources
+C:\Users\Watcher\Documents\GitHub\urlrewriter\src\obj\Debug\Intelligencia.UrlRewriter.csproj.GenerateResource.cache
+C:\Users\Watcher\Documents\GitHub\urlrewriter\src\obj\Debug\Intelligencia.UrlRewriter.csproj.CoreCompileInputs.cache
+C:\Users\Watcher\Documents\GitHub\urlrewriter\src\obj\Debug\Intelligencia.UrlRewriter.dll
+C:\Users\Watcher\Documents\GitHub\urlrewriter\src\obj\Debug\Intelligencia.UrlRewriter.pdb
+C:\Users\Watcher\Documents\GitHub\urlrewriter\YetAnotherForum.NET\Bin\Intelligencia.UrlRewriter.dll
+C:\Users\Watcher\Documents\GitHub\urlrewriter\YetAnotherForum.NET\Bin\Intelligencia.UrlRewriter.pdb
