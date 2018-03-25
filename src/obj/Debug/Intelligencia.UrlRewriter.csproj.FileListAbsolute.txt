@@ -27,3 +27,5 @@ C:\Users\Watcher\Documents\GitHub\urlrewriter\src\obj\Debug\Intelligencia.UrlRew
 C:\Users\Watcher\Documents\GitHub\urlrewriter\src\obj\Debug\Intelligencia.UrlRewriter.pdb
 C:\Users\Watcher\Documents\GitHub\urlrewriter\YetAnotherForum.NET\Bin\Intelligencia.UrlRewriter.dll
 C:\Users\Watcher\Documents\GitHub\urlrewriter\YetAnotherForum.NET\Bin\Intelligencia.UrlRewriter.pdb
+C:\Users\Watcher\Documents\GitHub\urlrewriter\src\bin\Intelligencia.UrlRewriter.dll
+C:\Users\Watcher\Documents\GitHub\urlrewriter\src\bin\Intelligencia.UrlRewriter.pdb
