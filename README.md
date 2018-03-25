@@ -37,10 +37,9 @@ Installation
 6. Add some rules to your web.config file:
 
    ```XML
-   <rewriter>
-     <if url="/tags/(.+)" rewrite="/tagcloud.aspx?tag=$1" />
-     <!-- same thing as <rewrite url="/tags/(.+)" to="/tagcloud.aspx?tag=$1" /> -->
-   </rewriter>
+   <if url="/tags/(.+)">
+       <rewrite to="/tagcloud.aspx?tag=$1" />
+   </if>
    ```
 
    The syntax of the rewriter section is very powerful.  Refer to the help file for more details
